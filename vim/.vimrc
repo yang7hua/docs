@@ -53,7 +53,7 @@ set complete-=k complete+=k
 endfunction
 
 "代码提示背景
-hi Pmenu ctermfg=darkgreen ctermbg=black
+hi Pmenu guifg=black guibg=darkgray ctermfg=darkgreen ctermbg=black
 
 "目录树
 nnoremap <silent> <F5> :NERDTree<CR>
@@ -71,6 +71,12 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
+
+" 在 vim 启动的时候默认开启 NERDTree（autocmd 可以缩写为 au）
+autocmd VimEnter * NERDTree
+
+" 当打开 NERDTree 窗口时，自动显示 Bookmarks
+let NERDTreeShowBookmarks=1
 
 if has("autocmd") && exists("+omnifunc")
 autocmd Filetype *
